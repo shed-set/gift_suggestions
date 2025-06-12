@@ -1,0 +1,98 @@
+  .card img {
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .card-text {
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+    main{
+      background-color: rgb(229, 240, 253);
+  }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .gift-card {
+      margin-bottom: 20px;
+    }
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .card-body .btn {
+      width: 100%;
+      margin-top: 8px;
+    }
+    .gift-card img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .wishlist-container {
+      padding: 20px;
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .wishlist-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .wishlist-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    
+  li{
+    list-style-type:none;
+    padding: 0px;
+  }
+  .menu-open {
+    height: 350px; /* Adjust height of navbar when opened */
+    transition: height 0.3s ease-in-out;
+  }
+  
+  .shifted-down {
+    margin-top: 350px; /* Pushes main content down */
+    transition: margin-top 0.2s ease-in-out;
+  }
+  
+  body {
+    padding-top: 10px; /* Adjust based on navbar height */
+  }
+  
+  @media (max-width: 991px) {
+    .navbar-collapse {
+     
+      padding: 10px;
+      transition: all 0.2s ease-in-out;
+    }
+  
+    
+    .navbar-expanded {
+      margin-top: 340px !important; /* Adjust height as needed */
+      transition: ease all 0.2s;
+    }
+  }

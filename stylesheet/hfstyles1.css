@@ -1,0 +1,77 @@
+
+a{
+    text-decoration: none;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+html, body {
+    height: 100%;
+}
+main {
+    padding-top: 0px; /* Adjust this value based on your header's height */
+  }
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    
+}
+#footer{
+    background-color: rgb(17, 6, 38) !important;
+    color: white;
+    
+}
+.navbar-toggler,.navbar-toggler:focus{
+    border:none !important;outline: none !important;box-shadow: none !important;
+}
+/* <!-- ------------------------------------------------------------>
+                  Footer modifications
+ <!-- -------------------------------------------------------- --> */
+
+
+ footer .social-icon{
+    padding: 10px;
+    background: rgb(249, 246, 246);
+    color:rgb(9, 7, 7);
+    border-radius: 10%;
+}
+
+footer .social-icon:hover{
+    background:rgb(109, 109, 109);
+}
+
+
+
+/* <!-- ------------------------------------------------------------>
+                  Nav bar modifications
+ <!-- -------------------------------------------------------- --> */
+
+.customnavbar{
+    background:rgb(17, 6, 38) !important
+}
+.customnavbar .nav-link{
+    color:white !important
+}
+
+.customnavbar  .navbar-brand{
+    color:white !important;
+}
+
+.customnavbar  .fa{
+    color:white !important;
+}

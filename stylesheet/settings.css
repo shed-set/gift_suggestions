@@ -1,0 +1,136 @@
+:root {
+  /* Light Theme Variables */
+  --light-bg: #ffffff;
+  --light-text: #333333;
+  --light-card-bg: #f8f9fa;
+  --light-border: #dee2e6;
+
+  /* Dark Theme Variables */
+  --dark-bg: #1a1a1a;
+  --dark-text: #ffffff;
+  --dark-card-bg: #2d2d2d;
+  --dark-border: #404040;
+}
+
+body {
+  transition: all 0.3s ease;
+ 
+}
+main{
+  margin-top: 2em;
+}
+/* Light Theme Styles */
+body.light-theme {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+.light-theme .card {
+  background-color: var(--light-card-bg);
+  border: 1px solid var(--light-border);
+}
+
+/* Dark Theme Styles */
+body.dark-theme {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.dark-theme .card {
+  background-color: var(--dark-card-bg);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-text);
+}
+
+.dark-theme .form-select {
+  background-color: var(--dark-card-bg);
+  color: var(--dark-text);
+  border-color: var(--dark-border);
+}
+
+.dark-theme .form-select option {
+  background-color: var(--dark-card-bg);
+  color: var(--dark-text);
+}
+
+/* Common Styles */
+.container {
+  max-width: 900px;
+}
+
+.card {
+  border-radius: 15px;
+  margin-bottom: 20px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-option {
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-check-input {
+  cursor: pointer;
+}
+
+.notification-toggle {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+/* Dark Theme Form Elements */
+.dark-theme .form-check-input {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-border);
+}
+
+.dark-theme .form-check-input:checked {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.dark-theme .notification-toggle {
+  background-color: var(--dark-card-bg);
+}
+
+.menu-open {
+  height: 350px; /* Adjust height of navbar when opened */
+  transition: height 0.3s ease-in-out;
+}
+
+.shifted-down {
+  margin-top: 350px; /* Pushes main content down */
+  transition: margin-top 0.2s ease-in-out;
+}
+
+body {
+  padding-top: 10px; /* Adjust based on navbar height */
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+   
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  
+  .navbar-expanded {
+    margin-top: 340px !important; /* Adjust height as needed */
+    transition: ease all 0.2s;
+  }
+}

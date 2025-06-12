@@ -1,0 +1,159 @@
+.notifications {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  body{
+    background-color: rgb(205, 205, 210);
+  }
+  .notifications h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .notification-container {
+    max-width: 600px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    padding: 15px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  
+  .notification:hover {
+    background-color: #f3f3f3;
+    transform: translateY(-2px);
+  }
+  
+  .notification strong {
+    font-size: 18px;
+    color: #2c3e50;
+  }
+  
+  .notification p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  .notification small {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .delete-btn {
+    background: transparent;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 10px;
+    transition: color 0.2s;
+  }
+  
+  .delete-btn:hover {
+    color: #c0392b;
+  }
+  
+  .alert {
+    font-size: 16px;
+    color: #333;
+    background-color: #eaf5ff;
+    border-color: #bbe1ff;
+  }
+  
+  #clear-all-btn {
+    font-size: 20px;
+    transition: color 0.2s;
+  }
+  
+  #clear-all-btn:hover {
+    color: #c0392b;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .notification-container {
+      padding: 10px;
+    }
+  
+    .notification {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .delete-btn {
+      margin: 10px 0 0 0;
+    }
+  
+    .notifications h2 {
+      font-size: 20px;
+    }
+  }
+  .delete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dc3545; /* Bootstrap danger red */
+    border: none; /* Remove button border */
+    color: #fff; /* White icon for contrast */
+    font-size: 1.25rem; /* Make the icon larger */
+    padding: 0.5rem; /* Add padding for better clickability */
+    border-radius: 50%; /* Make the button circular */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add smooth transitions */
+  }
+  
+  .delete-btn:hover {
+    background-color: #0e0b0b; /* Brighter red on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+  }
+  
+  .delete-btn i {
+    pointer-events: none; /* Prevent icon from interfering with button clicks */
+  }
+
+
+  .menu-open {
+    height: 350px; /* Adjust height of navbar when opened */
+    transition: height 0.3s ease-in-out;
+  }
+  
+  .shifted-down {
+    margin-top: 350px; /* Pushes main content down */
+    transition: margin-top 0.2s ease-in-out;
+  }
+  
+  body {
+    padding-top: 10px; /* Adjust based on navbar height */
+  }
+  
+  @media (max-width: 991px) {
+    .navbar-collapse {
+     
+      padding: 10px;
+      transition: all 0.2s ease-in-out;
+    }
+  
+    
+    .navbar-expanded {
+      margin-top: 340px !important; /* Adjust height as needed */
+      transition: ease all 0.2s;
+    }
+  }

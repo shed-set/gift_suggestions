@@ -1,0 +1,69 @@
+  #cart-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px; /* Spacing between the items */
+    }
+    .cart-item {
+        width: 100%;
+        max-width: 250px; /* Set a max-width for the card */
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .card-img-top {
+        max-width: 100%;
+        height: 150px; /* Set the image height to ensure it's small */
+        object-fit: cover; /* Ensure images maintain aspect ratio */
+    }
+    .card-body {
+        padding: 10px;
+    }
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .card-text {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    .remove-item {
+        margin-top: 10px;
+    }
+    #payment-info {
+        display: none; /* Initially hidden, displayed after form submission */
+    }
+
+    .card-img-top {
+        width: 100%; /* Ensures images take up full width of the container */
+        height: 100px; /* Set a fixed height */
+        object-fit: cover; /* Ensures the image fills the area while maintaining aspect ratio */
+    }
+
+    .menu-open {
+        height: 350px; /* Adjust height of navbar when opened */
+        transition: height 0.3s ease-in-out;
+      }
+      
+      .shifted-down {
+        margin-top: 350px; /* Pushes main content down */
+        transition: margin-top 0.2s ease-in-out;
+      }
+      
+      body {
+        padding-top: 70px; /* Adjust based on navbar height */
+      }
+      
+      @media (max-width: 991px) {
+        .navbar-collapse {
+         
+          padding: 10px;
+          transition: all 0.2s ease-in-out;
+        }
+      
+        
+        .navbar-expanded {
+          margin-top: 340px !important; /* Adjust height as needed */
+          transition: ease all 0.2s;
+        }
+      }

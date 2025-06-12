@@ -1,0 +1,109 @@
+.hero-banner {
+    background-image: url("../images/background3.jpg") !important;
+  background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  .category-card img {
+    height: 150px;
+    object-fit: cover;
+  }
+  main{
+    background:linear-gradient(to top, rgb(133, 125, 165), rgb(19, 12, 17))
+  } 
+  .testimonial {
+    font-style: italic;
+    color: #555;
+  }
+  .hero-banner h1{
+   color: black;
+   width: auto;
+   font-family:cursive;
+  }
+
+ .hero-banner p{
+    color: rgb(37, 57, 7);
+    font-weight: bold;
+  }
+  .card2-body {
+    height: auto;
+    background: linear-gradient(to bottom, rgb(183, 181, 233), rgb(246, 154, 219)) !important;
+  }
+  .color-con {
+    background: linear-gradient(to bottom, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+}
+
+  .btn{
+    background-color: rgb(8, 6, 23) !important;
+    color: white;
+  }
+  .card2-body img{
+    height: 300px;
+  }
+  .btn:hover{
+    background-color: blanchedalmond !important;;
+    color:black;
+  }
+
+  @media (max-width: 425px) {
+    .category-card {
+      margin-bottom: 20px; /* Add space between cards */
+    }
+  
+    .category-card img {
+      height: auto; /* Ensure images scale properly */
+    }
+  
+    .card2-body.btn {
+      font-size: 14px; /* Smaller button text for mobile */
+      padding: 8px; /* Adjust padding for better fit */
+      margin-bottom: 2em;
+    }
+  }
+  
+  @media (min-width: 1440px) {
+    .category-card {
+      margin-bottom: 30px; /* Spacing for larger screens */
+    }
+  
+    .category-card img {
+      max-height: 200px; /* Restrict image height for uniformity */
+    }
+  }
+  .no-results {
+    text-align: center;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+.menu-open {
+  height: 350px; /* Adjust height of navbar when opened */
+  transition: height 0.3s ease-in-out;
+}
+
+.shifted-down {
+  margin-top: 350px; /* Pushes main content down */
+  transition: margin-top 0.2s ease-in-out;
+}
+
+body {
+  padding-top: 10px; /* Adjust based on navbar height */
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+   
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  
+  .navbar-expanded {
+    margin-top: 340px !important; /* Adjust height as needed */
+  }
+}

@@ -1,0 +1,67 @@
+   #wishlist {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #wishlist li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+body{
+  background: url("https://media.gettyimages.com/id/1367785565/photo/abstract-blurred-colorful-background.jpg?s=612x612&w=0&k=20&c=0wwyDkwBuj8TerzkinTwkqc58hy676fo4rwkvyIQkYc=");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+    #wishlist img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    .remove-btn {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+
+
+
+
+
+    
+.menu-open {
+  height: 350px; /* Adjust height of navbar when opened */
+  transition: height 0.3s ease-in-out;
+}
+
+.shifted-down {
+  margin-top: 350px; /* Pushes main content down */
+  transition: margin-top 0.2s ease-in-out;
+}
+
+body {
+  padding-top: 10px; /* Adjust based on navbar height */
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+   
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  
+  .navbar-expanded {
+    margin-top: 340px !important; /* Adjust height as needed */
+  }
+}

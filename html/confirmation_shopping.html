@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Gift Suggestions APK</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="icon" href="../images/logo.jpg" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../stylesheet/hfstyles.css">
+  <link rel="stylesheet" href="../stylesheet/shopping.css">
+  <style>
+    html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;  /* Prevent horizontal scrolling */
+}
+.booking-container {
+        margin-top: 120px;
+        margin-bottom: 80px;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        padding: 30px;
+      }
+      .container {
+height: 100vh;
+}
+
+@media (max-width: 768px) {
+      
+        .un-list {
+          display: none;
+          flex-direction: column;
+          background-color: orange;
+          position: absolute;
+          top: 80px;
+          left: 0;
+          width: 100%;
+          padding: 10px 0;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .un-list.show {
+          display: flex;
+        }
+
+        .nav-items {
+          text-align: left;
+          margin-left: 10px;
+          margin-top: 10px;
+        }
+      }
+
+      /* Booking styles */
+      .booking-header {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+      }
+      .booking-progress {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        position: relative;
+      }
+      .booking-progress::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background-color: #e0e0e0;
+        z-index: 1;
+      }
+      .progress-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 2;
+        position: relative;
+      }
+      .progress-step-circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-bottom: 10px;
+        transition: all 0.3s;
+      }
+      .progress-step.active .progress-step-circle {
+        background-color: #4CAF50;
+      }
+      .progress-step-label {
+        color: #666;
+        font-weight: 500;
+      }
+      .progress-step.active .progress-step-label {
+        color: #4CAF50;
+      }
+      .meal-plan-preview {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .meal-plan-image {
+        max-width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      .form-control, .btn {
+        border-radius: 5px;
+      }
+      .btn-primary {
+        background-color: #4CAF50;
+        border-color: #4CAF50;
+      }
+      .btn-primary:hover {
+        background-color: #45a049;
+      }
+      .form-check-input:checked {
+        background-color: #4CAF50;
+        border-color: #4CAF50;
+      }
+      .error-input {
+        border: 2px solid #ff4444;
+        animation: shake 0.3s linear;
+      }
+
+      .error {
+        color: #ff4444;
+        font-size: 0.8rem;
+        margin-top: 5px;
+        display: block;
+      }
+
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        75% { transform: translateX(5px); }
+      }
+
+      /* Invalid input styling */
+      .is-invalid {
+        border: 2px solid #dc3545;
+        animation: shake 0.3s linear;
+      }
+
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        75% { transform: translateX(5px); }
+      }
+
+      .error {
+        color: #dc3545;
+        font-size: 0.8rem;
+        margin-top: 5px;
+      }
+        .un-list {
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: all 0.3s ease;
+}
+@media (max-width: 768px) {
+            .container {
+               height: fit-content;
+            }
+        }
+
+        @media (max-width: 768px) {
+    
+    .un-list {
+        display: none;
+        position: absolute;
+        top: 80px; /* Adjust based on your header height */
+        left: 0;
+        width: 100%;
+        background-color: orange;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .un-list.show {
+        display: flex;
+    }
+
+    .nav-items {
+      text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-items:last-child {
+        border-bottom: none;
+    }
+
+    .container {
+        transition: margin-top 0.3s ease;
+        margin-top: 100px; /* Default margin */
+    }
+
+    .container.menu-open {
+        margin-top: 270px; /* Adjust based on your menu height */
+    }
+}
+.pay2{
+    margin-top: 1em !important;
+}
+  </style>
+</head>
+<body>
+<!-- ------------------Header Content------------------- -->
+   <div  class="header"></div>
+ <!-- -------------------------------------------------------- -->
+
+
+
+ 
+
+   <main>
+
+        <h2 class="text-center mb-3">Order Confirmation</h2>
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Your Order Summary</h5>
+                        <div id="order-details"></div>
+                        <p><strong>Thank you for your purchase!</strong></p>
+                        <p>Your order is being processed, and you will receive a confirmation email shortly.</p>
+                        <p>If you need assistance, feel free to contact us.</p>
+                    </div>
+                    
+                </div>
+                
+                <div class="container booking-container pay2">
+                    <div class="booking-header">
+                      <h1>Book Your Gift plan</h1>
+                      <p class="text-muted">Complete your booking in three easy steps</p>
+                    </div>
+              
+                    <div class="booking-progress">
+                      <div class="progress-step active">
+                        <div class="progress-step-circle">1</div>
+                        <div class="progress-step-label">Gift plan</div>
+                      </div>
+                      <div class="progress-step">
+                        <div class="progress-step-circle">2</div>
+                        <div class="progress-step-label">Personal Details</div>
+                      </div>
+                      <div class="progress-step">
+                        <div class="progress-step-circle">3</div>
+                        <div class="progress-step-label">Payment</div>
+                      </div>
+                    </div>
+              
+                    <form id="bookingForm">
+                      <!-- Step 1: Meal Plan Selection -->
+                      <div id="mealPlanStep" class="booking-step active">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="meal-plan-preview" id="selectedMealPlanPreview">
+                              <h3 class="text-center mb-4">Selected gift Plan</h3>
+                              <h4 id="mealPlanTitle" class="text-center"></h4>
+                              <div class="text-center">
+                                <p id="mealPlanDetails" class="text-muted"></p>
+                                <div class="d-flex justify-content-center gap-2 mb-3">
+                                  <span class="badge bg-info" id="mealPlanType"></span>
+                                  <span class="badge bg-success" id="mealPlanGoal"></span>
+                                </div>
+                                <p><strong>Price:</strong> <span id="mealPlanPrice"></span></p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <h3>Choose Your Add-ons</h3>
+                            <div class="form-check mb-3">
+                              <input class="form-check-input" type="checkbox" id="nutritionConsultation">
+                              <label class="form-check-label" for="nutritionConsultation">
+                                Subscription-Based Gift Plans (+₹100)
+                              </label>
+                            </div>
+                            <div class="form-check mb-3">
+                              <input class="form-check-input" type="checkbox" id="weeklyMealPrep">
+                              <label class="form-check-label" for="weeklyMealPrep">
+                                Experience-Based Gift Plans (+₹150)
+                              </label>
+                            </div>
+                            <div class="form-check mb-4">
+                              <input class="form-check-input" type="checkbox" id="personalTrainerSession">
+                              <label class="form-check-label" for="personalTrainerSession">
+                                Personalized Gift Plans (+₹200)
+                              </label>
+                            </div>
+                            <button type="button" class="btn btn-primary w-100 next-step">Continue to Personal Details</button>
+                          </div>
+                        </div>
+                      </div>
+              
+                      <!-- Step 2: Personal Details -->
+                      <div id="personalDetailsStep" class="booking-step" style="display:none;">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="firstName" class="form-label">First Name</label>
+                              <input type="text" class="form-control" id="firstName" required>
+                              <span id="firstNameError" class="error"></span>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <label for="lastName" class="form-label">Last Name</label>
+                              <input type="text" class="form-control" id="lastName" required>
+                              <span id="lastNameError" class="error"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="email" required>
+                          <span id="emailError" class="error"></span>
+                        </div>
+                        <div class="mb-3">
+                          <label for="phone" class="form-label">Phone Number</label>
+                          <input type="tel" class="form-control" id="phone" required>
+                          <span id="phoneError" class="error"></span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                          <button type="button" class="btn btn-secondary prev-step">Back</button>
+                          <button type="button" class="btn btn-primary next-step">Continue to Payment</button>
+                        </div>
+                      </div>
+              
+                      <!-- Step 3: Payment -->
+                      <div id="paymentStep" class="booking-step" style="display:none;">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <h3>Payment Details</h3>
+                            <div class="form-group mb-3">
+                              <label for="cardName" class="form-label">Name on Card</label>
+                              <input type="text" class="form-control" id="cardName" name="cardName" placeholder="Name as on Card" required>
+                              <div id="cardNameError" class="invalid-feedback text-danger"></div>
+                            </div>
+                            <div class="mb-3">
+                              <label for="cardNumber" class="form-label">Card Number</label>
+                              <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                              <span id="cardNumberError" class="error"></span>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="mb-3">
+                                  <label for="expiryDate" class="form-label">Expiry Date</label>
+                                  <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+                                  <span id="expiryDateError" class="error"></span>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="mb-3">
+                                  <label for="cvv" class="form-label">CVV</label>
+                                  <input type="text" class="form-control" id="cvv" placeholder="123" required>
+                                  <span id="cvvError" class="error"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <h3>Order Summary</h3>
+                            <div class="card">
+                              <div class="card-body">
+                                <h5 class="card-title" id="summaryMealPlanTitle"></h5>
+                                <p class="card-text" id="summaryMealPlanDetails"></p>
+                                <hr>
+                                <div id="summaryAddOns"></div>
+                                <hr>
+                                <div class="d-flex justify-content-between">
+                                  <strong>Total:</strong>
+                                  <span id="summaryTotalPrice"></span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-check mt-3">
+                              <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                              <label class="form-check-label" for="termsCheck">
+                                I agree to the terms and conditions
+                              </label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-3">
+                              <button type="button" class="btn btn-secondary prev-step">Back</button>
+                              <button type="submit" class="btn btn-success">Complete Booking</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  
+
+  
+</main>
+<!-- --------------Footer content----------------------- -->
+<div  class="footer"></div>
+
+<style>
+    .footer .container{
+        height: auto !important;
+    }
+</style>
+<!-- -------------------------------------------------------- -->
+
+
+ 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const bookingForm = document.getElementById('bookingForm');
+      const steps = document.querySelectorAll('.booking-step');
+      const progressSteps = document.querySelectorAll('.progress-step');
+      const nextStepButtons = document.querySelectorAll('.next-step');
+      const prevStepButtons = document.querySelectorAll('.prev-step');
+      let currentStep = 0;
+
+      // Validation functions
+      const validateName = (name) => /^[A-Za-z\s'-]{2,50}$/.test(name);
+      const validateEmail = (email) => {
+          // Remove all whitespace
+          email = email.replace(/\s/g, '');
+          
+          // Strict email regex
+          const emailRegex = /^[a-zA-Z][a-zA-Z0-9._-]+@[a-zA-Z][a-zA-Z-]*\.(com|in|org)$/;
+          return emailRegex.test(email);
+      };
+      const validatePhone = (phone) => {
+          // Remove non-digit characters
+          const cleanedPhone = phone.replace(/\D/g, '');
+          
+          // Check if phone number is exactly 10 digits
+          if (cleanedPhone.length !== 10) return false;
+          
+          // Check first digit is 6, 7, 8, or 9
+          if (!/^[6-9]/.test(cleanedPhone)) return false;
+          
+          // Prevent completely repeated digits
+          const repeatedDigitsRegex = /^(\d)\1{9}$/;
+          if (repeatedDigitsRegex.test(cleanedPhone)) return false;
+          
+          // Additional check to prevent sequential or very predictable patterns
+          const sequentialRegex = /^(012345|123456|234567|345678|456789|567890|678901|789012|890123|901234)$/;
+          if (sequentialRegex.test(cleanedPhone)) return false;
+          
+          return true;
+      };
+      const validateCardNumber = (number) => /^\d{13,19}$/.test(number.replace(/\s/g, ''));
+      const validateExpiry = (expiry) => {
+          const [month, year] = expiry.split('/').map(Number);
+          const now = new Date();
+          const currentMonth = now.getMonth() + 1; // Months are 0-indexed
+          const currentYear = now.getFullYear() % 100; // Last two digits
+          return month >= 1 && month <= 12 && (year > currentYear || (year === currentYear && month >= currentMonth));
+      };
+      const validateCVV = (cvv) => /^\d{3,4}$/.test(cvv);
+      const validateNameOnCard = (name) => /^[A-Za-z\s]+$/.test(name);
+
+      // Email Validation
+const emailInput = document.getElementById('email');
+if (emailInput) {
+  emailInput.addEventListener('input', function(e) {
+      // Convert to lowercase and remove all whitespace
+      this.value = this.value.toLowerCase().replace(/\s/g, '');
+
+      // Validate email with strict regex
+      // Only allows:
+      // - Must start with a letter
+      // - Alphanumeric characters
+      // - Single dot (.) between alphanumeric characters
+      // Disallows:
+      // - Underscores
+      // - Plus signs
+      // - Multiple special characters
+      // - Consecutive dots
+      const emailRegex = /^[a-zA-Z][a-zA-Z0-9._-]+@[a-zA-Z][a-zA-Z-]*\.(com|in|org)$/;
+      const isValid = this.value === '' || emailRegex.test(this.value);
+      
+      // Toggle invalid class
+      this.classList.toggle('is-invalid', !isValid);
+      
+      // Update error message
+      const errorElement = document.getElementById('emailError');
+      if (errorElement) {
+          errorElement.textContent = isValid ? '' : 'Please enter a valid email address (only dots allowed)';
+      }
+
+      // If input was modified, show error
+      if (this.value !== this.value.replace(/[^a-z0-9.@]/g, '') && !isValid) {
+          this.classList.add('is-invalid');
+          if (errorElement) {
+              errorElement.textContent = 'Invalid characters removed. Please enter a valid email.';
+          }
+      }
+  });
+}
+
+
+      // Real-time validation
+      document.getElementById('firstName').addEventListener('input', function() {
+        const isValid = validateName(this.value);
+        this.classList.toggle('is-invalid', !isValid);
+        document.getElementById('firstNameError').textContent = isValid ? '' : 'Please enter a valid first name';
+      });
+
+      document.getElementById('lastName').addEventListener('input', function() {
+        const isValid = validateName(this.value);
+        this.classList.toggle('is-invalid', !isValid);
+        document.getElementById('lastNameError').textContent = isValid ? '' : 'Please enter a valid last name';
+      });
+
+      // Phone Number Validation
+      const phoneInput = document.getElementById('phone');
+      if (phoneInput) {
+          phoneInput.addEventListener('input', function(e) {
+              // Remove non-digit characters
+              const originalValue = this.value;
+              this.value = this.value
+                  .replace(/[^0-9]/g, '')    // Remove non-digit characters
+                  .slice(0, 10);             // Limit to 10 digits
+
+              // Validate phone number
+              const phoneRegex = /^[6-9]\d{9}$/;
+              const isValid = this.value === '' || phoneRegex.test(this.value.replace(/\D/g, ''));
+              
+              // Toggle invalid class
+              this.classList.toggle('is-invalid', !isValid);
+              
+              // Update error message
+              const errorElement = document.getElementById('phoneError');
+              if (errorElement) {
+                  errorElement.textContent = isValid ? '' : 'Please enter a valid 10-digit phone number starting with 6-9';
+              }
+
+              // If characters were removed, it means invalid input was entered
+              if (originalValue !== this.value && !isValid) {
+                  this.classList.add('is-invalid');
+                  if (errorElement) {
+                      errorElement.textContent = 'Invalid characters removed. Please enter a valid phone number.';
+                  }
+              }
+          });
+      }
+
+      document.getElementById('cardNumber').addEventListener('input', function() {
+        let value = this.value.replace(/\D/g, '');
+        value = value.replace(/(\d{4})/g, '$1 ').trim();
+        this.value = value;
+        const isValid = validateCardNumber(value);
+        this.classList.toggle('is-invalid', !isValid);
+        document.getElementById('cardNumberError').textContent = isValid ? '' : 'Please enter a valid 16-digit card number';
+      });
+
+      document.getElementById('expiryDate').addEventListener('input', function() {
+        let value = this.value.replace(/\D/g, '');
+        if (value.length >= 2) {
+          value = value.slice(0, 2) + '/' + value.slice(2);
+        }
+        this.value = value;
+        const isValid = validateExpiry(value);
+        this.classList.toggle('is-invalid', !isValid);
+        document.getElementById('expiryDateError').textContent = isValid ? '' : 'Please enter a valid expiry date (MM/YY)';
+      });
+
+      document.getElementById('cvv').addEventListener('input', function() {
+        const isValid = validateCVV(this.value);
+        this.classList.toggle('is-invalid', !isValid);
+        document.getElementById('cvvError').textContent = isValid ? '' : 'Please enter a valid 3 or 4 digit CVV';
+      });
+
+      document.getElementById('cardName').addEventListener('input', function() {
+        const isValid = validateNameOnCard(this.value);
+        this.classList.toggle('is-invalid', !isValid);
+        document.getElementById('cardNameError').textContent = isValid ? '' : 'Please enter a valid name on card (only letters, spaces, and apostrophes)';
+      });
+
+      // Form submission
+      bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const cardName = document.getElementById('cardName').value;
+        const cardNumber = document.getElementById('cardNumber').value;
+        const expiryDate = document.getElementById('expiryDate').value;
+        const cvv = document.getElementById('cvv').value;
+        const termsAccepted = document.getElementById('termsCheck').checked;
+
+        if (!validateName(firstName) || !validateName(lastName) || 
+            !validateEmail(email) || !validatePhone(phone.replace(/\D/g, '')) ||
+            !validateNameOnCard(cardName) || !validateCardNumber(cardNumber) || 
+            !validateExpiry(expiryDate) || !validateCVV(cvv) || !termsAccepted) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Validation Error',
+            text: 'Please fill in all fields correctly.'
+          });
+          return;
+        }
+
+        // Proceed with form submission
+        Swal.fire({
+          icon: 'success',
+          title: 'Booking Successful!',
+          text: 'Redirecting to meal planning page...',
+          timer: 2000,
+          showConfirmButton: false
+        }).then(() => {
+          window.location.href = 'mealplanning.html';
+        });
+      });
+
+      // Navigation between steps
+      nextStepButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          if (currentStep === 1) {
+            // Validate personal details before proceeding
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            if (!validateName(firstName) || !validateName(lastName) || 
+                !validateEmail(email) || !validatePhone(phone.replace(/\D/g, ''))) {
+              Swal.fire({
+                icon: 'error',
+                title: 'Validation Error',
+                text: 'Please fill all fields correctly before proceeding',
+              });
+              return;
+            }
+          }
+
+          if (currentStep < steps.length - 1) {
+            steps[currentStep].style.display = 'none';
+            progressSteps[currentStep].classList.remove('active');
+            currentStep++;
+            steps[currentStep].style.display = 'block';
+            progressSteps[currentStep].classList.add('active');
+          }
+        });
+      });
+
+      prevStepButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          if (currentStep > 0) {
+            steps[currentStep].style.display = 'none';
+            progressSteps[currentStep].classList.remove('active');
+            currentStep--;
+            steps[currentStep].style.display = 'block';
+            progressSteps[currentStep].classList.add('active');
+          }
+        });
+      });
+
+      // Load meal plan data
+      const urlParams = new URLSearchParams(window.location.search);
+      const planId = parseInt(urlParams.get('planId'));
+      if (planId) {
+        // Simulate loading meal plan data
+        const mealPlan = {
+          title: "Sample Meal Plan",
+          nutritionist: "Dr. John Doe",
+          duration: "12 weeks",
+          price: "₹500",
+          image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800",
+          type: "Vegetarian",
+          goal: "Weight Loss"
+        };
+
+        document.getElementById('mealPlanImage').src = mealPlan.image;
+        document.getElementById('mealPlanTitle').textContent = mealPlan.title;
+        document.getElementById('mealPlanDetails').textContent = `${mealPlan.nutritionist} | ${mealPlan.duration}`;
+        document.getElementById('mealPlanType').textContent = mealPlan.type;
+        document.getElementById('mealPlanGoal').textContent = mealPlan.goal;
+        document.getElementById('mealPlanPrice').textContent = mealPlan.price;
+        document.getElementById('summaryMealPlanTitle').textContent = mealPlan.title;
+        document.getElementById('summaryMealPlanDetails').textContent = `${mealPlan.nutritionist} | ${mealPlan.duration}`;
+      }
+
+      // Update total price when add-ons change
+      const updateTotal = () => {
+        let total = 500; // Base price
+        if (document.getElementById('nutritionConsultation').checked) total += 100;
+        if (document.getElementById('weeklyMealPrep').checked) total += 150;
+        if (document.getElementById('personalTrainerSession').checked) total += 200;
+        document.getElementById('summaryTotalPrice').textContent = `₹${total}`;
+      };
+
+      document.getElementById('nutritionConsultation').addEventListener('change', updateTotal);
+      document.getElementById('weeklyMealPrep').addEventListener('change', updateTotal);
+      document.getElementById('personalTrainerSession').addEventListener('change', updateTotal);
+
+      // Initial total calculation
+      updateTotal();
+    });
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- SweetAlert2 CSS and JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    
+  
+   <script src="../javascript/header-footer.js"></script>
+   <script src="../javascript/confirmation.js"></script>
+   <script src="../javascript/home.js"></script>   
+  <script src="../javascript/user_profile.js"></script>   
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

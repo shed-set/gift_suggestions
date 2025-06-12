@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+   
+      <title>QUICK hEaDER footer</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <link rel="icon" href="../images/logo.jpg" type="image/x-icon">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+     <link href="./assets/css/styles.css"  rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+    <style>
+        .input-box{
+    margin-bottom: 10px;
+  }
+        /* Base Styles */
+        .is-invalid{
+    border:1px solid red !important;
+  }
+.password-input-group {
+    position: relative;
+    display: flex !important;
+    align-items: center;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    transition: color 0.2s ease;
+}
+
+.password-toggle:hover {
+    color: #333;
+}
+
+.password-toggle i {
+    font-size: 1.2em;
+}
+
+/* Adjust password input padding to prevent text overlap with icon */
+.password-input-group input[type="password"],
+.password-input-group input[type="text"] {
+    padding-right: 40px;
+    width: 100%;
+}
+
+/* Optional: Animation for icon change */
+.password-toggle i {
+    transition: transform 0.2s ease;
+}
+
+.password-toggle.show i {
+    transform: scale(1.1);
+}
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+label.radio-label {
+    display: inline-block !important;
+    margin: 6px;
+}
+        /* Card Styles */
+        .auth-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* Tab Styles */
+        .auth-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tab.active {
+            background: #fff;
+            border-bottom: 2px solid #0066ff;
+            color: #0066ff;
+        }
+
+        /* Form Styles */
+        .form-container {
+            padding: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e4e8;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #0066ff;
+            outline: none;
+        }
+
+        .form-group input.error {
+            border-color: #ff4444;
+        }
+
+        .error-message {
+            color: #ff4444;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .error-message.visible {
+            display: block;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: #0066ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #0052cc;
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Password Strength Indicator */
+        .password-strength {
+            height: 4px;
+            background: #eee;
+            margin-top: 8px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .strength-meter {
+            height: 100%;
+            width: 0;
+            transition: all 0.3s ease;
+        }
+
+        .weak { width: 33.33%; background: #ff4444; }
+        .medium { width: 66.66%; background: #ffbb33; }
+        .strong { width: 100%; background: #00C851; }
+
+        /* Form Toggle Animation */
+        .form-container {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00ffcd;
+            border: none;
+            border-radius: 4px;
+            color: black;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: dodgerblue;
+        }
+
+        .already {
+            margin-top: 10px;
+            font-size: 14px;
+            color: black;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: darkorange;
+        }
+
+        .error {
+            color: red;
+            display: none;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .terms-checkbox {
+            display: block;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .terms-checkbox label {
+            font-size: 12px;
+        }
+
+        .terms-checkbox input[type="checkbox"] {
+    
+            margin-right: 5px;
+    position: relative;
+    top: 3px;
+        }
+
+       .password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #333;
+    z-index: 1;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.password-container input {
+    padding-right: 35px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Hide default password reveal button in Edge */
+::-ms-reveal,
+::-ms-clear {
+    display: none;
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+        /* Responsive styles for smaller screens */
+  @media (max-width: 375px) {
+    .registration-box {
+      width: 90%;
+      padding: 15px;
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"] {
+      font-size: 13px;
+    }
+
+    .register-button button {
+      font-size: 14px;
+    }
+
+    .already p {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .registration-box {
+      padding: 10px;
+    }
+
+    h2 {
+      font-size: 16px;
+    }
+
+    label {
+      font-size: 12px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"] {
+      font-size: 12px;
+      padding: 8px;
+    }
+
+    .terms-checkbox label {
+      font-size: 12px;
+    }
+
+    .register-button button {
+      font-size: 13px;
+    }
+
+    .already p {
+      font-size: 12px;
+    }
+  }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="auth-card">
+            <!-- Auth Tabs -->
+            <div class="auth-tabs">
+                <div class="tab active" data-tab="login" id="loginbtn">Login</div>
+                <div class="tab" data-tab="register" id="registerbtn">Register</div>
+            </div>
+
+            <!-- Login Form -->
+            <div class="form-container active" id="loginForm">
+                <form id="loginForm">
+                    <h1>Login</h1>
+        <!-- Login Type Toggle -->
+    <div class="toggle-container mb-3">
+        <div class="form-check form-check-inline">
+            <input type="radio" id="emailLogin" name="loginType" value="email" class="form-check-input" checked>
+            <label class="form-check-label" for="emailLogin">Email</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input type="radio" id="phoneLogin" name="loginType" value="phone" class="form-check-input">
+            <label class="form-check-label" for="phoneLogin">Phone</label>
+        </div>
+    </div>
+
+    <!-- Email Input Box -->
+    <div class="input-box" id="emailBox">
+        <input type="email" class="form-control" id="email"   placeholder="Enter Your Email Id" maxlength="50">
+        <i class="fa-solid fa-envelope"></i>
+        <div class="invalid-feedback" id="emailidphone">
+            Please enter a valid email address
+        </div>
+    </div>
+
+    <!-- Phone Input Box -->
+    <div class="input-box" id="phoneBox" style="display: none;">
+        <input type="tel" class="form-control" id="phone"   placeholder="Enter Your Phone Number" maxlength="10">
+        <i class="fa-solid fa-phone"></i>
+        <div class="invalid-feedback" id="emailidphone">
+            Please enter a valid phone number of 10 digits starting with 6-9 & repeated Numbers not Allowed
+        </div>
+    </div>
+<style>
+.form-control.is-invalid, .was-validated .form-control:invalid{
+    background-image:none !important
+    
+}</style>
+    <script>
+
+
+        // Toggle between email and phone login
+        document.querySelectorAll('input[name="loginType"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const emailBox = document.getElementById('emailBox');
+                const phoneBox = document.getElementById('phoneBox');
+                
+                if (this.value === 'email') {
+                    emailBox.style.display = 'block';
+                    phoneBox.style.display = 'none';
+                } else {
+                    emailBox.style.display = 'none';
+                    phoneBox.style.display = 'block';
+                }
+            });
+        });
+        
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const password = document.getElementById('password');
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
+      
+        // Form validation
+        function validateForm() {
+            let isValid = true;
+            const loginType = document.querySelector('input[name="loginType"]:checked').value;
+            
+            // Email validation
+            if (loginType === 'email') {
+                const email = document.getElementById('email');
+                const emailRegex =/^[a-z](?!.*\.\.)[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z]+\.(com|org|net|edu|gov|co|io|in|biz|info|tv|us|ca|uk|eu)$/;
+
+;
+                if (!emailRegex.test(email.value)) {
+                    email.classList.add('is-invalid');
+                               document.getElementById('emailidphone').style.display = "block"
+                    isValid = false;
+                } else {
+                    email.classList.remove('is-invalid');
+                                       document.getElementById('emailidphone').style.display = "none"
+                }
+            }
+            
+        // Phone validation
+        if (loginType === 'phone') {
+                const phone = document.getElementById('phone');
+                const phoneRegex = /^(?!.*(\d)\1{8})[6-9]\d{9}$/;
+                if (!phoneRegex.test(phone.value)) {
+                    phone.classList.add('is-invalid');
+                                       document.getElementById('emailidphone').style.display = "block"
+                    isValid = false;
+                } else {
+                    phone.classList.remove('is-invalid');
+                                       document.getElementById('emailidphone').style.display = "none";
+                                       
+                   
+                }
+            }
+            
+            // Password validation
+            const password = document.getElementById('password');
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/;
+            if (!passwordRegex.test(password.value)) {
+                password.classList.add('is-invalid');
+                document.getElementById('passwordRegex').style.display = "block"
+                isValid = false;
+            } else {
+                password.classList.remove('is-invalid');
+                                document.getElementById('passwordRegex').style.display = "none"
+            }
+            
+            return isValid;
+        }
+        
+        function loginDirect(event) {
+            event.preventDefault();
+            if (validateForm()) {
+                alert('Logged In Successfully');
+                window.location.href = "home.html";
+            }
+        }
+        </script>
+    <!-- Password Input Box -->
+    <div class="input-box">
+        <div class="password-container">
+            <input type="password" class="form-control" id="password" placeholder="Enter Your Password" 
+                   autocomplete="new-password" maxlength="12">
+            <i class="bi bi-eye" id="togglePassword" aria-hidden="true"></i>
+        </div>
+        <div class="invalid-feedback" id="passwordRegex">
+            Password must contain 8-12 characters, including uppercase, lowercase, number, and special character
+        </div>
+    </div>     
+
+    <button type="submit" class="btn btn-info" onclick="loginDirect(event)">Login</button>
+
+    <div class="forgot-password">
+        <a href="#" class="text-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Forgot Password</a>
+    </div>
+                </form>
+
+
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const form = document.getElementById('loginForm');
+                        const usernameInput = document.getElementById('username');
+                        const passwordInput = document.getElementById('password');
+                        const togglePassword = document.getElementById('togglePassword');
+            
+                        // Regular expressions for validation
+                   const emailRegex =/^[a-z](?!.*\.\.)[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z]+\.(com|org|net|edu|gov|co|io|in|biz|info|tv|us|ca|uk|eu)$/;
+            
+            
+            
+                        const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=\-{}[\]|:;,.<>?/])[A-Za-z0-9!@#$%^&*()_+=\-{}[\]|:;,.<>?/]{8,12}$/;
+            
+                        // Password visibility toggle
+                        if (togglePassword) {
+                            togglePassword.addEventListener('click', function() {
+                                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                                passwordInput.setAttribute('type', type);
+                                this.classList.toggle('bi-eye');
+                                this.classList.toggle('bi-eye-slash');
+                            });
+                        }
+
+                        
+            
+                        // Validation functions
+                        function validateEmail() {
+                            const email = usernameInput.value.trim();
+                            const emailValid = emailRegex.test(email);
+                            usernameInput.classList.toggle('is-invalid', !emailValid);
+                        }
+            
+                        function validatePassword() {
+                            const password = passwordInput.value.trim();
+                            const passwordValid = passwordRegex.test(password);
+                            passwordInput.classList.toggle('is-invalid', !passwordValid);
+
+                         if(!passwordValid){
+                            document.getElementById('passwordRegex').style.display = 'block';
+                         }
+                         else{
+                            document.getElementById('passwordRegex').style.display = 'none';
+                         }
+                        }
+            
+                        // Event listeners
+                        usernameInput.addEventListener('blur', validateEmail);
+                        passwordInput.addEventListener('blur', validatePassword);
+            
+                        usernameInput.addEventListener('input', () => {
+                            usernameInput.classList.remove('is-invalid');
+                        });
+            
+                        passwordInput.addEventListener('input', () => {
+                            passwordInput.classList.remove('is-invalid');
+                        });
+            
+                        // Form submission
+                        form.addEventListener('submit', (event) => {
+                            event.preventDefault();
+            
+                            validateEmail();
+                            validatePassword();
+            
+                            const emailValid = emailRegex.test(usernameInput.value.trim());
+                            const passwordValid = passwordRegex.test(passwordInput.value.trim());
+            
+                            if (emailValid && passwordValid) {
+                                const now = new Date();
+                                const formattedDate = now.getFullYear() + '-' + 
+                                                    String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                                                    String(now.getDate()).padStart(2, '0') + ' ' + 
+                                                    String(now.getHours()).padStart(2, '0') + ':' + 
+                                                    String(now.getMinutes()).padStart(2, '0') + ':' + 
+                                                    String(now.getSeconds()).padStart(2, '0');
+                                console.log('Login successful at:', formattedDate);
+                                alert('Logged In', 'success');
+                                const newTab = window.open('home.html');
+                                newTab.focus();
+                            }
+                        });
+            
+                        // Prevent zooming on mobile devices
+                        document.addEventListener('wheel', function(e) {
+                            if (e.ctrlKey) {
+                                e.preventDefault();
+                            }
+                        });
+            
+                        document.addEventListener('gesturestart', function(e) {
+                            e.preventDefault();
+                        });
+            
+                        document.addEventListener('touchstart', function(e) {
+                            if (e.scale !== 1) {
+                           
+                            }
+                        });
+                    });
+                </script>
+  <!-- Modal Structure -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Forgot Password</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input 
+                    type="email" 
+                    id="emailforgot" 
+                    required
+                    pattern=" /^[a-zA-Z][a-zA-Z0-9._-]+@[a-zA-Z][a-zA-Z-]*\.(com|in|org)$/"
+                  
+                >
+          
+            </div>
+    
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btnclose" data-bs-dismiss="modal" >Close</button>
+          <button type="button" class="btn btn-primary" onclick="savechanges()">Send Email Verification</button>
+        </div>
+      </div>
+    </div>
+  </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="form-container" id="registerForm">
+                <form onsubmit="registration(event)">
+                    <div class="register-username">
+                        <label>Username</label>
+                        <input type="text" name="username" id="register-username">
+                        <span class="error" id="register-username-error">Username is required</span>
+                        <span class="error" id="register-username-error-length">Username must be 3 to 12 characters long</span>
+                        <span class="error" id="register-username-error-invalid">Username must start with a capital letter and can only contain letters, numbers,and special characters after the first character</span>
+                    </div>
+                     <div class="register-email">
+                        <label>Email ID</label>
+                        <input type="email" name="email" id="register-email">
+                        <span class="error" id="register-email-error">Email is required</span>
+                        <span class="error" id="register-email-error-invalid">Please enter a valid email</span>
+                    </div>
+                    <div class="register-gender">
+                        <label>Gender</label>
+                        <div>
+                            <input type="radio" name="gender" value="male" id="register-gender-male">
+                            <label for="register-gender-male">Male</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="gender" value="female" id="register-gender-female">
+                            <label for="register-gender-female">Female</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="gender" value="other" id="register-gender-other">
+                            <label for="register-gender-other">Other</label>
+                        </div>
+                        <span class="error" id="register-gender-error">Gender is required</span>
+                    </div>
+                   <div class="register-password">
+        <label>Password</label>
+        <div class="password-container">
+            <input type="password" name="password" id="register-password" minlength="8" maxlength="12" autocomplete="new-password">
+            <i class="bi bi-eye" id="togglePassword1" aria-hidden="true"></i>
+        </div>
+        <span class="error" id="register-password-error">Password is required</span>
+        <span class="error" id="register-password-error-length">Password must be between 8 and 12 characters</span>
+        <span class="error" id="register-password-error-criteria">Password must contain at least one uppercase letter, one lowercase letter,one special character and one number</span>
+    </div>
+    
+    <div class="register-confirmPassword">
+        <label>Confirm password</label>
+        <div class="password-container">
+            <input type="password" name="confirmPassword" id="register-confirmPassword" minlength="8" maxlength="12" autocomplete="new-password">
+            <i class="bi bi-eye" id="toggleConfirmPassword" aria-hidden="true"></i>
+        </div>
+        <span class="error" id="register-confirmPassword-error">Password confirmation is required</span>
+        <span class="error" id="register-confirmPassword-error-didnotmatch">Passwords do not match</span>
+    </div>
+    
+                <script>
+
+const togglePassword1 = document.getElementById('togglePassword1');
+const passwordInput  =  document.getElementById('register-password');
+                          // Password visibility toggle
+                        if (togglePassword1) {
+                            togglePassword1.addEventListener('click', function() {
+                                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                                passwordInput.setAttribute('type', type);
+                                this.classList.toggle('bi-eye');
+                                this.classList.toggle('bi-eye-slash');
+                            });
+                        }
+
+
+
+
+                       
+const togglePassword2 = document.getElementById('toggleConfirmPassword');
+const passwordInput2  =  document.getElementById('register-confirmPassword');
+                          // Password visibility toggle
+                        if (togglePassword2) {
+                            togglePassword2.addEventListener('click', function() {
+                                const type = passwordInput2.getAttribute('type') === 'password' ? 'text' : 'password';
+                                passwordInput2.setAttribute('type', type);
+                                this.classList.toggle('bi-eye');
+                                this.classList.toggle('bi-eye-slash');
+                            });
+                        }
+                </script>   
+    
+                    <div class="register-phone">
+                        <label>Phone Number</label>
+                        <input type="tel" name="phone" id="register-phone" maxlength="10">
+                        <span class="error" id="register-phone-error">Phone number is required</span>
+                        <span class="error" id="register-phone-error-invalid">Please enter a valid phone number of 10 digits starting with 6-9</span>
+                        <span class="error" id="register-phone-error-repeated">Phone number cannot contain all repeated digits</span>
+                    </div>
+    
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="terms-checkbox" name="terms">
+                        <label for="terms-checkbox">I agree to the <a href="terms.html">Terms and Conditions</a></label>
+                        <br/><span class="error " id="terms-error">You must agree to the terms and conditions</span>
+                    </div>
+    
+                    <div class="register-button">
+                        <button type="submit" class="btn btn-info">Register</button>
+                    </div>
+                </form>
+             
+            </div>
+        </div>
+
+        <div class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+    
+    </div>
+    <script>
+        function registration(event) {
+    event.preventDefault();
+
+    const rusername = document.getElementById('register-username');
+    const rpassword = document.getElementById('register-password');
+    const rconfirmPassword = document.getElementById('register-confirmPassword');
+    const remail = document.getElementById('register-email');
+    const rphone = document.getElementById('register-phone');
+    const termsCheckbox = document.getElementById('terms-checkbox');
+
+    // Get all error elements
+    const rusernameError = document.getElementById('register-username-error');
+    const rusernameErrorLength = document.getElementById('register-username-error-length');
+    const rusernameErrorInvalid = document.getElementById('register-username-error-invalid');
+    const rpasswordError = document.getElementById('register-password-error');
+    const rpasswordErrorLength = document.getElementById('register-password-error-length');
+    const rpasswordErrorCriteria = document.getElementById('register-password-error-criteria');
+    const rconfirmpasswordError = document.getElementById('register-confirmPassword-error');
+    const rconfirmpasswordErrordidnotmatch = document.getElementById('register-confirmPassword-error-didnotmatch');
+    const remailError = document.getElementById('register-email-error');
+    const remailErrorInvalid = document.getElementById('register-email-error-invalid');
+    const rphoneError = document.getElementById('register-phone-error');
+    const rphoneErrorInvalid = document.getElementById('register-phone-error-invalid');
+    const rphoneErrorRepeated = document.getElementById('register-phone-error-repeated');
+    const termsError = document.getElementById('terms-error');
+    const gender = document.querySelector('input[name="gender"]:checked');
+ 
+let rvalid = true;
+
+    // Username validation
+   const usernameValue = rusername.value.trim();
+if (usernameValue === '') {
+    rusernameError.style.display = 'block';
+    rvalid = false;
+} else if (usernameValue.length < 3) {
+    rusernameError.style.display = 'none';
+    rusernameErrorLength.style.display = 'block';
+    rvalid = false;
+} else if (!/^[a-zA-Z][a-zA-Z0-9 !@#$%^&*()_+\-=$$$${};':"\\|,.<>/?]*$/.test(usernameValue)) {
+    rusernameError.style.display = 'none';
+    rusernameErrorLength.style.display = 'none';
+    rusernameErrorInvalid.style.display = 'block';
+    rvalid = false;
+} else {
+    // Valid username - hide all username error messages
+    rusernameError.style.display = 'none';
+    rusernameErrorLength.style.display = 'none';
+    rusernameErrorInvalid.style.display = 'none';
+}
+
+
+    // Gender validation
+    if (!gender) {
+        document.getElementById('register-gender-error').style.display = 'block';
+        rvalid = false;
+    } else {
+        document.getElementById('register-gender-error').style.display = 'none';
+    }
+
+    // Password validation
+    const passwordValue = rpassword.value.trim();
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=\-{}[\]|:;,.<>?/])[A-Za-z0-9!@#$%^&*()_+=\-{}[\]|:;,.<>?/]{8,12}$/;
+    
+    if (passwordValue === '') {
+        rpasswordError.style.display = 'block';
+        rpasswordErrorLength.style.display = 'none';
+        rpasswordErrorCriteria.style.display = 'none';
+        rvalid = false;
+    } else if (passwordValue.length < 8 || passwordValue.length > 12) {
+        rpasswordError.style.display = 'none';
+        rpasswordErrorLength.style.display = 'block';
+        rpasswordErrorCriteria.style.display = 'none';
+        rvalid = false;
+    } else if (!passwordRegex.test(passwordValue)) {
+        rpasswordError.style.display = 'none';
+        rpasswordErrorLength.style.display = 'none';
+        rpasswordErrorCriteria.style.display = 'block';
+        rvalid = false;
+    } else {
+        // Valid password - hide all password error messages
+        rpasswordError.style.display = 'none';
+        rpasswordErrorLength.style.display = 'none';
+        rpasswordErrorCriteria.style.display = 'none';
+    }
+
+    // Confirm Password validation
+    const confirmPasswordValue = rconfirmPassword.value.trim();
+    if (confirmPasswordValue === '') {
+        rconfirmpasswordError.style.display = 'block';
+        rconfirmpasswordErrordidnotmatch.style.display = 'none';
+        rvalid = false;
+    } else if (passwordValue !== confirmPasswordValue) {
+        rconfirmpasswordError.style.display = 'none';
+        rconfirmpasswordErrordidnotmatch.style.display = 'block';
+        rvalid = false;
+    } else {
+        // Valid confirm password - hide all confirm password error messages
+        rconfirmpasswordError.style.display = 'none';
+        rconfirmpasswordErrordidnotmatch.style.display = 'none';
+    }
+
+    // Email validation
+    const emailValue = remail.value.trim();
+    const emailRegex = /^[a-z](?!.*\.\.)[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z]+\.(com|org|net|edu|gov|co|io|in|biz|info|tv|us|ca|uk|eu)$/;
+
+
+    if (emailValue === '') {
+        remailError.style.display = 'block';
+        remailErrorInvalid.style.display = 'none';
+        rvalid = false;
+    } else if (!emailRegex.test(emailValue)) {
+        remailError.style.display = 'none';
+        remailErrorInvalid.style.display = 'block';
+        rvalid = false;
+    } else {
+        // Valid email - hide all email error messages
+        remailError.style.display = 'none';
+        remailErrorInvalid.style.display = 'none';
+    }
+
+    // Phone validation
+    // Phone validation
+const phoneValue = rphone.value.trim();
+const phoneRegex = /^[6-9]\d{9}$/;
+const repeatedDigitsRegex = /(\d)\1{5,}/;  // Matches 6 or more repeated digits
+const sequentialDigitsRegex = /0{6,}|1{6,}|2{6,}|3{6,}|4{6,}|5{6,}|6{6,}|7{6,}|8{6,}|9{6,}/; // Checks for 6 or more sequential same digits
+
+if (phoneValue === '') {
+    rphoneError.style.display = 'block';
+    rphoneErrorInvalid.style.display = 'none';
+    rphoneErrorRepeated.style.display = 'none';
+    rvalid = false;
+} else if (!phoneRegex.test(phoneValue)) {
+    rphoneError.style.display = 'none';
+    rphoneErrorInvalid.style.display = 'block';
+    rphoneErrorRepeated.style.display = 'none';
+    rvalid = false;
+} else if (repeatedDigitsRegex.test(phoneValue) || sequentialDigitsRegex.test(phoneValue)) {
+    rphoneError.style.display = 'none';
+    rphoneErrorInvalid.style.display = 'none';
+    rphoneErrorRepeated.style.display = 'block';
+    rphoneErrorRepeated.textContent = 'Phone number cannot contain 6 or more repeated digits';
+    rvalid = false;
+} else {
+    // Valid phone - hide all phone error messages
+    rphoneError.style.display = 'none';
+    rphoneErrorInvalid.style.display = 'none';
+    rphoneErrorRepeated.style.display = 'none';
+}
+
+    // Terms validation
+    if (!termsCheckbox.checked) {
+        termsError.style.display = 'block';
+        rvalid = false;
+    } else {
+        termsError.style.display = 'none';
+    }
+
+    // If all validations pass
+    if (rvalid) {
+        const now = new Date();
+        const formattedDate = now.getFullYear() + '-' + 
+                            String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                            String(now.getDate()).padStart(2, '0') + ' ' + 
+                            String(now.getHours()).padStart(2, '0') + ':' + 
+                            String(now.getMinutes()).padStart(2, '0') + ':' + 
+                            String(now.getSeconds()).padStart(2, '0');
+        console.log('Registration successful at:', formattedDate);
+        alert('Registration successful!');
+        window.location.href = "login.html";
+    }
+}
+
+</script>
+<script>
+    window.onpageshow = function(event) {
+  if (event.persisted) {
+  // Clear cache and storage
+  window.localStorage.clear();
+  window.sessionStorage.clear();
+  // Clear cache by reloading with cache-control headers
+  window.location.reload(true);
+  // Redirect to login page
+  window.location.href = "login.html";
+  }
+  }
+  
+  window.history.forward();
+  function noBack() {
+  window.history.forward();
+  // Clear browser cache
+  if (window.caches) {
+  caches.keys().then(function(names) {
+  for (let name of names)
+  caches.delete(name);
+  });
+  }
+  }
+  </script>
+    <script>
+        // Tab Switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.form-container').forEach(f => f.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab + 'Form').classList.add('active');
+            });
+        });
+
+        // Email Validation
+        function validateEmail(input) {
+            const emailRegex =  /^[a-z](?!.*\.\.)[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z]+\.(com|org|net|edu|gov|co|io|in|biz|info|tv|us|ca|uk|eu)$/;
+ 
+            
+            if (!emailRegex.test(input.value)) {
+                showToast('Email is required', 'danger');
+                document.getElementById('registerEmail').classList.add('is-invalid');
+             
+                document.getElementById('registerEmail').value =     document.getElementById('registerEmail').value.trim();
+                return false;
+            } else {
+                document.getElementById('registerEmail').classList.remove('is-invalid');
+                return true;
+            }
+        }
+        forgot= document.getElementById('emailforgot').value;
+    // Email Validation
+ 
+        // Email Validation
+        function validateEmaillogin(input) {
+            const emailRegex =   /^[a-z](?!.*\.\.)[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z]+\.(com|org|net|edu|gov|co|io|in|biz|info|tv|us|ca|uk|eu)$/;
+
+            
+            if (!emailRegex.test(input.value)) {
+                showToast('Email is required', 'danger');
+                document.getElementById('loginEmail').classList.add('is-invalid');
+             
+                document.getElementById('loginEmail').value =     document.getElementById('loginEmail').value.trim();
+                return false;
+            } else {
+                document.getElementById('loginEmail').classList.remove('is-invalid');
+                return true;
+            }
+        }
+
+  
+        function togglePassword(inputId, toggleElement) {
+    const passwordInput = document.getElementById(inputId);
+    const icon = toggleElement.querySelector('i');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.remove('bi-eye-slash');
+        icon.classList.add('bi-eye');
+        toggleElement.classList.add('show');
+    } else {
+        passwordInput.type = 'password';
+        icon.classList.remove('bi-eye');
+        icon.classList.add('bi-eye-slash');
+        toggleElement.classList.remove('show');
+    }
+    
+    // Optional: Add focus to input after toggle
+    passwordInput.focus();
+}
+
+// Optional: Hide password when user tabs out or clicks outside
+document.addEventListener('click', function(event) {
+    const passwordInputs = document.querySelectorAll('input[type="text"][id$="Password"]');
+    passwordInputs.forEach(input => {
+        if (!input.contains(event.target) && 
+            !input.nextElementSibling.contains(event.target)) {
+            
+            input.type = 'password';
+            const toggle = input.nextElementSibling;
+            const icon = toggle.querySelector('i');
+            icon.classList.remove('bi-eye');
+            icon.classList.add('bi-eye-slash');
+            toggle.classList.remove('show');
+        }
+    });
+});
+
+// Optional: Hide password when user switches tabs/windows
+document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'hidden') {
+        const passwordInputs = document.querySelectorAll('input[type="text"][id$="Password"]');
+        passwordInputs.forEach(input => {
+            input.type = 'password';
+            const toggle = input.nextElementSibling;
+            const icon = toggle.querySelector('i');
+            icon.classList.remove('bi-eye');
+            icon.classList.add('bi-eye-slash');
+            toggle.classList.remove('show');
+        });
+    }
+});
+  
+
+function validatePhone(input) {
+    // Basic Indian mobile number format: starts with 6-9 and has 10 digits
+  const phoneValue = rphone.value.trim();
+    const phoneRegex = /^[6-9]\d{9}$/;
+    const repeatedDigitsRegex = /(\d)\1{5,}/;
+    if (phoneValue === '') {
+        rphoneError.style.display = 'block';
+        rvalid = false;
+    } else if (!phoneRegex.test(phoneValue)) {
+        rphoneErrorInvalid.style.display = 'block';
+        rvalid = false;
+    } else if (repeatedDigitsRegex.test(phoneValue)) {
+        rphoneErrorRepeated.style.display = 'block';
+        rphoneErrorRepeated.textContent = 'Phone number cannot contain more than 5 consecutive repeated digits';
+        rvalid = false;
+    }
+
+    // First check if it's a valid phone number format
+    if (!phoneRegex.test(input.value)) {
+        input.classList.add('is-invalid');
+        input.classList.remove('valid');
+        showToast('Please enter a valid 10-digit mobile number starting with 6-9.', 'danger');
+        return false;
+    }
+    // If both validations pass
+    input.classList.remove('invalid');
+    input.classList.add('valid');
+    return true;
+}
+
+// Name Validation
+function validateName(input) {
+            const nameRegex = /^[A-Za-z][A-Za-z0-9 ]*$/;
+
+
+
+            if (!nameRegex.test(input.value)) {
+               document.getElementById('registerName').classList.add('is-invalid');
+                showToast('Name must start with a letter.', 'danger');
+                return false;
+            } else {
+                document.getElementById('registerName').classList.remove('is-invalid');
+                return true;
+            }
+        }
+
+        // Trim Full Name Input
+        function trimFullName(input) {
+            input.value = input.value.trim();
+            showToast('Spaces Not Allowed.', 'danger');
+        }
+        // Password Strength Check
+        function checkPasswordStrength(input) {
+            const password = input.value;
+            const strengthMeter = input.nextElementSibling.querySelector('.strength-meter');
+            
+            // Reset strength meter
+            strengthMeter.className = 'strength-meter';
+            
+            if (password.length < 8) {
+                strengthMeter.classList.add('weak');
+                input.classList.add('is-invalid');
+                showToast('Password must be at least 8 characters', 'danger');
+
+            } else if (password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)) {
+                strengthMeter.classList.add('strong');
+            } else {
+                strengthMeter.classList.add('medium');
+            }
+        }
+
+        // Password Match Validation
+        function validatePasswordMatch(input) {
+            const password = document.getElementById('registerPassword').value;
+
+            
+            if (input.value !== password) {
+         
+          
+                showToast('Passwords do not match', 'danger');
+                document.getElementById('registerPassword').classList.add('is-invalid');
+                document.getElementById('confirmPassword').classList.add('is-invalid');
+                
+                return false;
+            } else {
+                document.getElementById('registerPassword').classList.remove('is-invalid');
+                document.getElementById('confirmPassword').classList.remove('is-invalid');
+                return true;
+            }
+        }
+
+
+        function savechanges() {
+    // Get the email input element by ID
+    const emailInput = document.getElementById('emailforgot');
+
+    // Define the email regex
+    const emailRegex =   /^[a-z](?!.*\.\.)[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z]+\.(com|org|net|edu|gov|co|io|in|biz|info|tv|us|ca|uk|eu)$/;
+
+    // Validate the email address
+    if (!emailRegex.test(emailInput.value)) {
+        // Show an error message (using a custom showToast function)
+        showToast('Enter valid email', 'danger');
+        
+        // Add the 'is-invalid' class for styling (Bootstrap or custom CSS)
+        emailInput.classList.add('is-invalid');
+        
+        // Trim whitespace from the input value
+        emailInput.value = emailInput.value.trim();
+        
+        return false;
+    } else {
+        // Show a success message
+        showToast('Email verification sent successfully', 'success');
+        emailInput.classList.remove('is-invalid');
+        // Find and click the close button to close the modal or hide the form
+        const closeButton = document.querySelector('.btnclose');
+        if (closeButton) {
+            closeButton.click();
+        }
+
+        // Optionally, you could clear the input field after success
+        emailInput.value = '';
+    }
+}
+        
+  // Toast notification
+  window.showToast = function(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `toast align-items-center text-white bg-${type} border-0`;
+            toast.setAttribute('role', 'alert');
+            toast.setAttribute('aria-live', 'assertive');
+            toast.setAttribute('aria-atomic', 'true');
+            
+            toast.innerHTML = `
+                <div class="d-flex">
+                    <div class="toast-body">
+                        <i class="fas fa-${type === 'success' ? 'check-circle' : 
+                                         type === 'error' ? 'exclamation-circle' : 
+                                         'exclamation-triangle'} me-2"></i>
+                        ${message}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                </div>
+            `;
+            
+            document.querySelector('.toast-container').appendChild(toast);
+            const bsToast = new bootstrap.Toast(toast, { delay: 500 });
+            bsToast.show();
+            
+            toast.addEventListener('hidden.bs.toast', () => toast.remove());
+        };
+    
+    </script>
+</body>
+</html>
